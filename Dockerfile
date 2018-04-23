@@ -13,7 +13,7 @@ EXPOSE 8983
 
 RUN echo 'v1'
 WORKDIR /opt/apache-solr-3.6.2/example
-RUN rm solr/conf/schema.xml
-ADD schema.xml /opt/apache-solr-3.6.2/example/solr/conf/schema.xml
+COPY conf/* solr/conf/
+COPY solr.xml solr/
 
-CMD java -jar start.jar > /dev/null 2>&1
+CMD java -jar start.jar
